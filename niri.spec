@@ -14,7 +14,7 @@ BuildRequires:  clang
 BuildRequires:  pango-devel
 BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig
-BuildRequires:  rust >= 1.70.0
+BuildRequires:  rust >= 1.85.0
 BuildRequires:  wayland-devel
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(cairo-gobject)
@@ -56,9 +56,9 @@ Opening a new window never causes existing windows to resize.
 %build
 %cargo_build
 
-target/rpm/niri completions bash > niri.bash
-target/rpm/niri completions fish > niri.fish
-target/rpm/niri completions zsh > _niri
+target/release/niri completions bash > niri.bash
+target/release/niri completions fish > niri.fish
+target/release/niri completions zsh > _niri
 
 %install
 install -Dm755 -t %{buildroot}%{_bindir} target/release/%{name}

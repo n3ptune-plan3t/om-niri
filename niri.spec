@@ -7,7 +7,7 @@ License:        GPL-3.0-or-later
 URL:            https://github.com/niri-wm/niri
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:        %{url}/releases/download/v%{version}/niri-%{version}-vendored-dependencies.tar.xz
-Source2:        cargo_config
+#Source2:        cargo_config
 
 BuildRequires:  rust-packaging
 BuildRequires:  clang
@@ -52,16 +52,6 @@ Opening a new window never causes existing windows to resize.
 
 %prep
 %autosetup -a1 -p1
-# Set up Cargo home and configuration for vendored dependencies
-set -euo pipefail
-mkdir -p target/rpm
-ln -s rpm target/release
-rm -rf .cargo/
-mkdir -p .cargo
-# Copy the provided cargo config
-cat %{SOURCE2} > .cargo/config.toml
-# DO NOT delete Cargo.lock - it's in the vendored tarball and contains the correct dependency versions
-# The %cargo_prep macro deletes it, so we do this manually instead
 
 %build
 %cargo_build

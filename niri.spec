@@ -58,9 +58,9 @@ cp %{SOURCE2} .cargo/config
 %build
 %cargo_build
 
-target/rpm/niri completions bash > niri.bash
-target/rpm/niri completions fish > niri.fish
-target/rpm/niri completions zsh > _niri
+target/release/niri completions bash > niri.bash
+target/release/niri completions fish > niri.fish
+target/release/niri completions zsh > _niri
 
 %install
 install -Dm755 -t %{buildroot}%{_bindir} target/release/%{name}

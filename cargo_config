@@ -6,9 +6,9 @@ replace-with = "vendored-sources"
 git = "https://github.com/Smithay/smithay.git"
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/Smithay/smithay.git?rev=fb50c9a2d2d94c1db9d8954beda3716f7fbc2c04"]
+[source."git+https://github.com/Smithay/smithay.git?rev=ff5fa7df392cecfba049ffed55cdaa4e98a8e7ef"]
 git = "https://github.com/Smithay/smithay.git"
-rev = "fb50c9a2d2d94c1db9d8954beda3716f7fbc2c04"
+rev = "ff5fa7df392cecfba049ffed55cdaa4e98a8e7ef"
 replace-with = "vendored-sources"
 
 [source."git+https://gitlab.freedesktop.org/pipewire/pipewire-rs.git"]

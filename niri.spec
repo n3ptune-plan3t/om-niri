@@ -4,7 +4,7 @@ Version:        26.04
 Release:        1
 Summary:        Scrollable-tiling Wayland compositor
 License:        GPL-3.0-or-later
-URL:            https://github.com/YaLTeR/niri
+URL:            https://github.com/niri-wm/niri
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:        %{url}/releases/download/v%{version}/niri-%{version}-vendored-dependencies.tar.xz
 Source2:        cargo_config

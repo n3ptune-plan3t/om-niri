@@ -7,7 +7,7 @@ License:        GPL-3.0-or-later
 URL:            https://github.com/niri-wm/niri
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:        %{url}/releases/download/v%{version}/niri-%{version}-vendored-dependencies.tar.xz
-#Source2:        cargo_config
+Source2:        cargo_config
 
 BuildRequires:  rust-packaging
 BuildRequires:  clang
@@ -52,13 +52,15 @@ Opening a new window never causes existing windows to resize.
 
 %prep
 %autosetup -a1 -p1
+mkdir -p .cargo
+cp %{SOURCE2} .cargo/config
 
 %build
 %cargo_build
 
-target/release/niri completions bash > niri.bash
-target/release/niri completions fish > niri.fish
-target/release/niri completions zsh > _niri
+target/rpm/niri completions bash > niri.bash
+target/rpm/niri completions fish > niri.fish
+target/rpm/niri completions zsh > _niri
 
 %install
 install -Dm755 -t %{buildroot}%{_bindir} target/release/%{name}
